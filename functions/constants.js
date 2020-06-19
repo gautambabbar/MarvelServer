@@ -1,4 +1,4 @@
 module.exports  = {
-  PROJECT_ID: 'extension-api-e8253',
+  PROJECT_ID: 'wingman-faqs',
   FAQ_COLLECTION_NAME: 'faqs'
 }

@@ -20,6 +20,12 @@ class FAQDBService {
       }
     });
   }
+
+  static setFAQS(domain, content) {
+    return db.collection(FAQ_COLLECTION_NAME).doc(domain).set({
+      data: content
+    });
+  }
 }
 
 module.exports = FAQDBService;
