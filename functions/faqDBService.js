@@ -23,7 +23,7 @@ class FAQDBService {
         }
       }
       else {
-        return {data: []};
+        return {data: defaultFAQS};
       }
     });
   }
