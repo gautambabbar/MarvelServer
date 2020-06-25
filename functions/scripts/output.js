@@ -6,7 +6,7 @@ const outputDir = path.resolve(__dirname, '..', '..', 'output');
 function output(domainName, content) {
   const outputFileName = path.resolve(outputDir, domainName + '.json');
 
-  fs.writeFile(outputFileName, JSON.stringify(content, null, 2), function (err) {
+  fs.writeFile(outputFileName, JSON.stringify(content, null, 2),  (err) => {
     if (err) {
       console.error('error');
     }

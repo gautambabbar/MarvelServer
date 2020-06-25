@@ -1,7 +1,7 @@
 const FAQDBService = require('../faqDBService');
 const parseToJson = require('./parseFromYML');
 
-parseToJson(async function(err, jsonStrings) {
+parseToJson(async (err, jsonStrings) => {
   if(err) {
     return;
   }
