@@ -65,3 +65,6 @@ node_modules/
 .env
 
 functions/configs/*
+backups/
+data/*.yml
+output/*.json

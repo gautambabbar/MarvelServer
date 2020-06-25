@@ -8,7 +8,10 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions:faqFor",
     "logs": "firebase functions:log",
-    "emulators": "firebase emulators:start --only firestore"
+    "emulators": "firebase emulators:start --only firestore",
+    "upload": "node ./scripts/upload.js",
+    "download": "node ./scripts/download.js",
+    "tojson": "node ./scripts/yamlToJSON.js"
   },
   "engines": {
     "node": "10"
@@ -23,7 +26,8 @@
     "eslint": "^5.12.0",
     "eslint-plugin-promise": "^4.0.1",
     "firebase-functions-test": "^0.2.0",
-    "firebase-tools": "^8.4.1"
+    "firebase-tools": "^8.4.1",
+    "yamljs": "^0.3.0"
   },
   "private": true
 }

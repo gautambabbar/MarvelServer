@@ -1,6 +1,7 @@
 const admin = require("firebase-admin");
 const {PROJECT_ID, FAQ_COLLECTION_NAME} = require('./constants');
 const serviceAccount = require("./configs/firebase-admin-service-key.json");
+const defaultFAQS = require('./defaultsFAQs.json');
 
 admin.initializeApp({
   databaseURL: `https://${PROJECT_ID}.firebaseio.com`,
@@ -9,11 +10,17 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
+
 class FAQDBService {
   static fetchFAQ(domain) {
     return db.collection(FAQ_COLLECTION_NAME).doc(domain).get().then((doc) => {
       if (doc.exists) {
-        return doc.data();
+        return {
+          data: [
+            ...doc.data().data,
+            ...defaultFAQS
+          ]
+        }
       }
       else {
         return {data: []};
@@ -25,6 +32,14 @@ class FAQDBService {
     return db.collection(FAQ_COLLECTION_NAME).doc(domain).set({
       data: content
     });
+  }
+
+  static setAllFAQs(domains = []) {
+    return domains.map((domainObj) => {
+      console.log(domainObj, '\n');
+      return db.collection(FAQ_COLLECTION_NAME).doc(domainObj.name).set({
+      data: domainObj.content
+    })});
   }
 }
 
