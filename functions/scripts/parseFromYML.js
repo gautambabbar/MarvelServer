@@ -10,8 +10,7 @@ function parseToJson(callback) {
       console.error(err);
     }
     const fileReadPromise = [];
-  
-    fileNames.forEach((file)  => {
+    fileNames.filter(item => path.extname(item) === '.yml').forEach((file)  => {
       fileReadPromise.push(new Promise( (resolve, reject) => {
         const filePath = path.resolve(yamlRootDir, file);
         YAML.load(filePath, (obj) => {

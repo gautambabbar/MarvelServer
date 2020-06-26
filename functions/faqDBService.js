@@ -36,7 +36,6 @@ class FAQDBService {
 
   static setAllFAQs(domains = []) {
     return domains.map((domainObj) => {
-      console.log(domainObj, '\n');
       return db.collection(FAQ_COLLECTION_NAME).doc(domainObj.name).set({
       data: domainObj.content
     })});
